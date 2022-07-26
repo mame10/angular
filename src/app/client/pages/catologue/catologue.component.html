@@ -1,14 +1,25 @@
-
-<div class="container">
+<!-- <div class="container">
     <h1>Welcome to Brasil Burger</h1>
     <div class="row">
-        <!-- Blog entries-->
+         Blog entries
         <div class="col-lg-8">
            
             <div class="row">
                 <div class="col-lg-6" *ngFor="let post of posts$|async">
                 <app-card [posts]="post"></app-card>
             </div>
+        </div>
+    </div>
+</div> -->
+<!-- <app-header></app-header> -->
+<div class="container">
+    <h1>Bienvenu</h1>
+    <div class="card">
+        <div class="col-4 d-flex">
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
         </div>
     </div>
 </div>

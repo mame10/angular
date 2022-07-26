@@ -30,7 +30,8 @@ import { BurgerComponent } from './components/burger/burger.component';
     CommonModule,
     ClientRoutingModule,
     LayoutModule,
-    RouterModule
+    RouterModule,
+   
   ]
 })
 export class ClientModule { }
