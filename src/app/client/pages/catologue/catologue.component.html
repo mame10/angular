@@ -1,0 +1,14 @@
+
+<div class="container">
+    <h1>Welcome to Brasil Burger</h1>
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col-lg-8">
+           
+            <div class="row">
+                <div class="col-lg-6" *ngFor="let post of posts$|async">
+                <app-card [posts]="post"></app-card>
+            </div>
+        </div>
+    </div>
+</div>

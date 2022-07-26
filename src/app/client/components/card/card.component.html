@@ -1,0 +1,11 @@
+<div class="card mb-4">
+    <a href="#!"><img class="card-img-top" [src]="burger?.image" alt="..." /></a>
+    <div class="card-body">
+        <h2 class="card-title h4">{{burger?.nom}}</h2>
+        <h2 class="card-title h4">{{burger?.prix}}</h2>
+        <p class="card-text">{{burger?.description|slice:0:50}}</p>
+        <a class="btn btn-primary" routerLink="/client/details/{{burger?.id}}">Read more →</a>
+        <a class="btn btn-primary" routerLink="">Ajout</a>
+
+    </div>
+</div>
