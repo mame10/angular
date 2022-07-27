@@ -1,7 +1,7 @@
-export interface Post {
+export interface Produit {
     id?:number
+    image:string
     nom:string
     prix:string
-    image:string
     description:string
 }

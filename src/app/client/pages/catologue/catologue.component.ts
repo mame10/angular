@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../../shared/models/post';
-import { PostStoreService } from '../../shared/services/post-store.service';
+import { Produit } from '../../shared/models/produit';
+import { ProduitStoreService } from '../../shared/services/produit.store.service';
 
 @Component({
   selector: 'app-catologue',
@@ -11,10 +11,10 @@ import { PostStoreService } from '../../shared/services/post-store.service';
 export class CatologueComponent implements OnInit {
 
 
-  posts$ : Observable<Post[]> | null = null;
-  constructor(private serv:PostStoreService) { }
+  produits$ : Observable<Produit[]> | null = null;
+  constructor(private serv:ProduitStoreService) { }
 
   ngOnInit(): void {
-    this.posts$ = this.serv.all();
+    this.produits$ = this.serv.all();
   }
 }

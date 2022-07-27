@@ -8,19 +8,21 @@
         <a class="btn btn-primary" routerLink="">Ajout</a>
 
     </div>
+       <img class="card-img-top" src="assets/images/b8.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">burger royal</h5>
+          <h5 class="card-title">2000f</h5>
+          <h5 class="card-title">description:burger simple tres ....</h5> 
 </div> -->
-    <div class="cardcato">
-        <div class="text-center">
-            <h3>Burger simple</h3>
-            <h3>prix</h3>
-        </div>
-        <a href="#!"><img class="card-img-top" src="assets/images/b8.png" alt="..." /></a>
-        <div class="d-flex m-4">
-            <a class="text-decoration-none btn btn-secondary" href="">
-                <h2 class="card-title h4">Ajout</h2>
-            </a>
-            <a class="text-decoration-none btn btn-secondary" href="">
-                <h2 class="card-title h4">Détails</h2>
-            </a>
+ 
+    <div class="card m-4" style="width: 23rem;">
+      
+          <a href="#!"><img class="card-img-top" [src]="produit?.image" alt="..." /></a>
+          <div class="card-body">
+            <h2 class="card-title" >{{produit?.prix}}</h2>
+            <h2 class="card-title h4">{{produit?.nom}}</h2>
+            <p class="card-text">{{produit?.description|slice:0:50}}</p>
+            <a href="#" class="btn btn-secondary m-5" routerLink="details/{{produit?.id}}">Details</a>
+            <a href="#" class="btn btn-secondary"  routerLink="#">Ajout</a>
         </div>
     </div>

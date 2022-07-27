@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { CatologueComponent } from './pages/catologue/catologue.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BurgerComponent } from './components/burger/burger.component';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -24,13 +25,14 @@ import { BurgerComponent } from './components/burger/burger.component';
     CatologueComponent,
     MenuComponent,
     BurgerComponent,
-
+    TableComponent,
   ],
   imports: [
     CommonModule,
     ClientRoutingModule,
     LayoutModule,
     RouterModule,
+
    
   ]
 })

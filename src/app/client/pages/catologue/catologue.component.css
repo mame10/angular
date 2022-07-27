@@ -1,8 +1,11 @@
 .card{
     border: 2px solid;
-    margin-top: 10%;
+    margin-top: 3%;
     height: auto;
 }
-.cont{
-    margin-top: 1em;
+
+.head{
+    margin-top: 5em;
+    padding: 2em;
+    background-image: url(../../../../assets/images/fond.png);
 }
