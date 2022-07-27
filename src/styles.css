@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "../node_modules/@fortawesome/fontawesome-free/css/all.css" */
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
-@import "../node_modules/bootstrap/dist/css/bootstrap.css"
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.container{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.24);
+    margin-top: 5%;
+
+}

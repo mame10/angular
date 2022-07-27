@@ -8,12 +8,9 @@ import { DetailcommandeComponent } from './pages/detailcommande/detailcommande.c
 import { MescommandesComponent } from './pages/mescommandes/mescommandes.component';
 import { LayoutModule } from '../layout/layout.module';
 import { RouterModule } from '@angular/router';
-import { CatologueComponent } from './pages/catologue/catologue.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { BurgerComponent } from './components/burger/burger.component';
 import { TableComponent } from './components/table/table.component';
-
-
+import { ListecatalogueComponent } from './components/listecatalogue/listecatalogue.component';
+import { CatologueComponent } from './pages/catologue/catologue.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +19,15 @@ import { TableComponent } from './components/table/table.component';
     DetailsComponent,
     DetailcommandeComponent,
     MescommandesComponent,
-    CatologueComponent,
-    MenuComponent,
-    BurgerComponent,
     TableComponent,
+    ListecatalogueComponent,
+    CatologueComponent 
   ],
   imports: [
     CommonModule,
     ClientRoutingModule,
     LayoutModule,
     RouterModule,
-
-   
   ]
 })
 export class ClientModule { }

@@ -11,14 +11,15 @@
         </div>
     </div>
 </div> -->
-<app-header></app-header> 
+<app-header></app-header>
 <div class="head">
     <h1 class=" d-flex text-light justify-content-center">Welcome to Brasil Burger</h1>
     <a href="" class="btn btn-secondary m-4 text-warning">menu</a>
     <a href="" class="btn btn-secondary text-warning">burger</a>
-</div> 
-        <div class="d-flex flex-wrap"  *ngFor="let produit of produits$|async">
-            <app-card [produits]= "produit" ></app-card>
-           
-        </div>
-<app-footer></app-footer> 
+</div>
+<div class="d-flex flex-wrap">
+    <!-- <app-card [produits]= "produit" ></app-card> -->
+    <!-- <app-liste-catalogue produits="catalogue?.produit"></app-liste-catalogue> -->
+    <app-listecatalogue [produits]="catalogue?.produits"></app-listecatalogue>
+</div>
+<!-- <app-footer></app-footer> -->

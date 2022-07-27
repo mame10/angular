@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Produit } from '../../shared/models/produit';
-import { ProduitStoreService } from '../../shared/services/produit.store.service';
+import { Catalogue } from 'src/app/shared/models/catalogue';
+import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.service';
+
 
 @Component({
   selector: 'app-catologue',
@@ -10,11 +11,13 @@ import { ProduitStoreService } from '../../shared/services/produit.store.service
 })
 export class CatologueComponent implements OnInit {
 
-
-  produits$ : Observable<Produit[]> | null = null;
-  constructor(private serv:ProduitStoreService) { }
+  // catalogue$: Observable<Catalogue> | null = null
+  catalogue : Catalogue|undefined=undefined
+  constructor(private serv:CatalogueStoreService) { }
 
   ngOnInit(): void {
-    this.produits$ = this.serv.all();
+    this.serv.all().subscribe((data) => this.catalogue = data)
+    // this.catalogue$= this.serv.all()
+
   }
 }
