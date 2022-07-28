@@ -4,8 +4,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./securite/securite.module').then(m => m.SecuriteModule) },
-  { path: 'catologue', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) }, 
-  { path: '', redirectTo: 'catologue',pathMatch:"full"}, 
+  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) }, 
+  { path: '', redirectTo: 'client',pathMatch:"full"}, 
   { path: '**', component:NotFoundComponent}, 
 
 ];

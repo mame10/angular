@@ -8,3 +8,15 @@
     margin-top: 5%;
 
 }
+
+.card{
+    border: 2px solid;
+    margin-top: 3%;
+    height: auto;
+}
+
+.head{
+    margin-top: 5em;
+    padding: 2em;
+    background-image: url(assets/images/fond.png);
+}

@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
 import { ListecatalogueComponent } from './components/listecatalogue/listecatalogue.component';
 import { CatologueComponent } from './pages/catologue/catologue.component';
+import { BurgerComponent } from './components/burger/burger.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CatologueComponent } from './pages/catologue/catologue.component';
     MescommandesComponent,
     TableComponent,
     ListecatalogueComponent,
-    CatologueComponent 
+    CatologueComponent,
+    BurgerComponent,
+    MenuComponent 
   ],
   imports: [
     CommonModule,

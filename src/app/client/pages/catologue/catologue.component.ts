@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
+
+
+
 import { Catalogue } from 'src/app/shared/models/catalogue';
 import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.service';
 
@@ -10,10 +14,9 @@ import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.s
   styleUrls: ['./catologue.component.css']
 })
 export class CatologueComponent implements OnInit {
-
   // catalogue$: Observable<Catalogue> | null = null
-  catalogue : Catalogue|undefined=undefined
-  constructor(private serv:CatalogueStoreService) { }
+  catalogue : Catalogue|null=null
+  constructor(private serv:CatalogueStoreService,public router:Router) { }
 
   ngOnInit(): void {
     this.serv.all().subscribe((data) => this.catalogue = data)

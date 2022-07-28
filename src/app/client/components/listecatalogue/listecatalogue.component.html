@@ -1,3 +1,10 @@
+<app-header></app-header>
+<div class="head">
+    <h1 class=" d-flex text-light justify-content-center">Welcome to Brasil Burger</h1>
+    <a href="" class="btn btn-secondary m-4 text-warning" routerLink="">catalogue</a>
+    <a href="" class="btn btn-secondary m-4 text-warning" routerLink="/client/menu">menu</a>
+    <a href="" class="btn btn-secondary text-warning" routerLink="/client/burger">burger</a>
+</div>
 <div class="d-flex flex-wrap" >
     <ng-container *ngFor="let produit of produits" >
         <app-card [produit]="produit"></app-card>

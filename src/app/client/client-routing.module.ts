@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BurgerComponent } from './components/burger/burger.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { CatologueComponent } from './pages/catologue/catologue.component';
 import { DetailcommandeComponent } from './pages/detailcommande/detailcommande.component';
 import { DetailsComponent } from './pages/details/details.component';
@@ -10,6 +12,8 @@ const routes: Routes = [
   {path:'', component:CatologueComponent},
   {path:'details/:id', component:DetailsComponent},
   {path:'panier', component:PanierComponent},
+  {path:'burger', component:BurgerComponent},
+  {path:'menu', component:MenuComponent},
   {path:'mescommandes', component:MescommandesComponent},
   {path:'detailcommande/:id', component:DetailcommandeComponent},
 ];
