@@ -22,7 +22,6 @@ import { CatalogueStoreService } from './shared/services/catalogue.store.service
     AppRoutingModule,
     RouterModule,
     ClientModule,
-    LayoutModule,
     HttpClientModule 
   ],
   providers: [ProduitStoreService,CatalogueStoreService],

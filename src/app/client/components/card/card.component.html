@@ -15,13 +15,13 @@
           <h5 class="card-title">description:burger simple tres ....</h5> 
 </div> -->
 
-<div class="card m-4" style="width: 25rem;">
-    <img class="card-img-top" [src]=produit?.image alt="..." />
+<div class="card m-4" style="height: 29rem; width: 24rem;">
+    <img class="card-img-top" style="height:16rem;" src="data:image/PNG;base64,{{produit?.image}}">
     <div class="card-body">
-        <h2 class="card-title">{{produit?.prix}}</h2>
         <h2 class="card-title h4">{{produit?.nom}}</h2>
-        <p class="card-text">{{produit?.description|slice:0:50}}</p>
-        <a href="#" class="btn btn-secondary m-5" routerLink="details/{{produit?.id}}">Details</a>
-        <a href="#" class="btn btn-secondary" routerLink="#">Ajout</a>
+        <h2 class="card-title">{{produit?.prix}}</h2>
+        <!-- <p class="card-text">{{produit?.description|slice:0:50}}</p> -->
+        <a class="btn btn-secondary m-5" routerLink="details/{{produit?.id}}">Details</a>
+        <a class="btn btn-secondary" routerLink="#">Ajout</a>
     </div>
 </div>

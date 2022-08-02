@@ -10,7 +10,7 @@ import { PanierComponent } from './pages/panier/panier.component';
 
 const routes: Routes = [
   {path:'', component:CatologueComponent},
-  {path:'details/:id', component:DetailsComponent},
+  {path:'details', component:DetailsComponent},
   {path:'panier', component:PanierComponent},
   {path:'burger', component:BurgerComponent},
   {path:'menu', component:MenuComponent},

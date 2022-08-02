@@ -10,7 +10,7 @@ import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.s
 export class BurgerComponent implements OnInit {
 
    // catalogue$: Observable<Catalogue> | null = null
-   catalogue : Catalogue|null=null
+   catalogue : Catalogue|undefined
    constructor(private serv:CatalogueStoreService) { }
  
    ngOnInit(): void {
@@ -18,5 +18,6 @@ export class BurgerComponent implements OnInit {
      // this.catalogue$= this.serv.all()
  
    }
+
 
 }

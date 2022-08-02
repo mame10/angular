@@ -1,7 +1,7 @@
 export interface Produit {
     id?:number
-    image:string
+    image:Blob
     nom:string
     prix:string
-    description:string
+    description?:string
 }

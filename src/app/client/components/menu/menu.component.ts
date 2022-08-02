@@ -9,7 +9,7 @@ import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.s
 })
 export class MenuComponent implements OnInit {
  // catalogue$: Observable<Catalogue> | null = null
- catalogue : Catalogue|null=null
+ catalogue : Catalogue|undefined
  constructor(private serv:CatalogueStoreService) { }
 
  ngOnInit(): void {
