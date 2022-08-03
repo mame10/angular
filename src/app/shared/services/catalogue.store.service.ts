@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Catalogue } from '../models/catalogue';
+import { DetailsProduit } from '../models/detailsProduit';
+
 
 
 @Injectable({
@@ -10,7 +12,8 @@ import { Catalogue } from '../models/catalogue';
 export class CatalogueStoreService {
 
 
-  private url: string = "http://localhost:3000/catalogues"
+  private url: string = "http://localhost:8000/api/catalogues"
+  private urldetails: string = "http://localhost:8000/api/details"
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +32,10 @@ export class CatalogueStoreService {
       })
     )
   }
-  produit$ = (id: number) => {
-    return this.http.get<Catalogue>(`${this.url}/${id}`)
+  produit = (id: number) => {
+    return this.http.get<DetailsProduit>(`${this.urldetails}/${id}`)
+
   }
+
+  
 }

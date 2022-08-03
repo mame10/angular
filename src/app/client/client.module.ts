@@ -13,6 +13,9 @@ import { ListecatalogueComponent } from './components/listecatalogue/listecatalo
 import { CatologueComponent } from './pages/catologue/catologue.component';
 import { BurgerComponent } from './components/burger/burger.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { ListeDetailsComponent } from './components/liste-details/liste-details.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { MenuComponent } from './components/menu/menu.component';
     ListecatalogueComponent,
     CatologueComponent,
     BurgerComponent,
-    MenuComponent 
+    MenuComponent,
+    CardDetailsComponent,
+    ListeDetailsComponent,
+   
   ],
   imports: [
     CommonModule,
