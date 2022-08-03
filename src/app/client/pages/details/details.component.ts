@@ -12,7 +12,7 @@ import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.s
 })
 export class DetailsComponent implements OnInit {
 @Input() produit : Produit|null = null; 
-  produit$:Observable<DetailsProduit>|null=null
+  produit$:Observable<any>|undefined=undefined
   constructor(private serv :CatalogueStoreService,private routes:ActivatedRoute) { }
   
     ngOnInit(): void {

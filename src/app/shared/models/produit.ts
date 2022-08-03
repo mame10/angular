@@ -4,4 +4,5 @@ export interface Produit {
     nom:string
     prix:string
     description?:string
+    '@type':string
 }

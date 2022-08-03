@@ -33,7 +33,7 @@ export class CatalogueStoreService {
     )
   }
   produit = (id: number) => {
-    return this.http.get<DetailsProduit>(`${this.urldetails}/${id}`)
+    return this.http.get<any>(`${this.urldetails}/${id}`)
 
   }
 
