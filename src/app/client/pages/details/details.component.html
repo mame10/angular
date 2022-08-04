@@ -1,7 +1,6 @@
 <!-- {{produit$|async|json}} -->
 <app-header></app-header>
 <ng-container *ngIf="produit$|async as detailProduit">
-
   <div class="container ">
     <h4 class="justify-content-center">Details Produit </h4>
     <div class="detail d-flex">
@@ -11,38 +10,68 @@
           is an enterprise that should be cherished as an
           activity of the free human mind. Because it transforms
           so there's no reason to think that Earth would be unique. we find that. </p>
-        <h3>Nom Produit:{{detailProduit.produit.nom}}</h3>
-        <h3>Prix:{{detailProduit.produit.prix}}</h3>
+        <h4>Nom Produit: {{detailProduit.produit.nom}}</h4>
+        <h4>Prix: {{detailProduit.produit.prix}}</h4>
       </div>
-   
-    <ng-container *ngIf="detailProduit.produit['@type']=='Menu'">
-      <div class="container border border-1" *ngFor="let burger of detailProduit.produit.menuBurgers">
-        <h3>Composition du menu</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Image</th>
-              <th scope="col">NomProduit</th>
-              <th scope="col">Quantite</th>
-              <th scope="col">Prix Unitaire</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">{{burger.burger.id}}</th>
-              <th scope="row"><img src="data:image/PNG;base64,{{burger.burger.image}}" class="card-img-top" style="width: 5rem;">
-              </th>
-              <td>{{burger.burger.nom}}
-              <td>{{burger.quantite}}</td>
-              <td>{{burger.burger.prix}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </ng-container>
-  </div>
+      <ng-container *ngIf="detailProduit.produit['@type']=='Menu'">
+        <div class="" *ngFor="let burger of detailProduit.produit.menuBurgers">
+          <h3>Composition du menu:</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">NomProduit</th>
+                <th scope="col">Quantite</th>
+                <th scope="col">Prix Unitaire</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row"><img src="data:image/PNG;base64,{{burger.burger.image}}" class="card-img-top"
+                    style="width: 4rem;">
+                </td>c
+                <td>{{burger.burger.nom}}</td>
+                <td>{{burger.quantite}}</td>
+                <td>{{burger.burger.prix}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-container *ngFor="let boisson of detailProduit.produit.menuTailles">
+            <div>
+              <h5>quantite boisson du menu: {{boisson.quantiteBoisson}}</h5>
+              <h5>taille boisson du menu: {{boisson.tailles.libelle}}</h5>
+              <h5>prix boisson du menu: {{boisson.tailles.prix}}</h5>
+            </div>
+          </ng-container>c
+          <ng-container *ngFor="let portion of detailProduit.produit.menuPortions">
+            <div class="">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">NomProduit</th>
+                    <th scope="col">Quantite</th>
+                    <th scope="col">Prix Unitaire</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row"><img src="data:image/PNG;base64,{{portion.portionFrites.image}}" class="card-img-top"
+                      style="width: 4rem;">
+                    </td>
+                    <td>{{portion.portionFrites.nom}}</td>
+                    <td>{{portion.quantitePortion}}</td>
+                    <td>{{portion.portionFrites.prix}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
     <div class="d-flex justify-content-around ">
       <input type="number" value="1" min="1">
       <a href="" class="btn btn-secondary m-6">Ajouter panier</a>
@@ -51,7 +80,7 @@
       <h3>veuillez choisir des complements de plus:</h3>
       <app-liste-details [details]="detailProduit.boissons"></app-liste-details>
       <app-liste-details [details]="detailProduit.portions"></app-liste-details>
-
     </div>
   </div>
 </ng-container>
+<app-footer></app-footer>

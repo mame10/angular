@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DetailsProduit } from 'src/app/shared/models/detailsProduit';
 import { Produit } from 'src/app/shared/models/produit';
 import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.service';
 
