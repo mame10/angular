@@ -1,8 +1,9 @@
-<div class="card m-2 border border-0" style="width: 10rem; height: 12rem; ">
-    
-    <img src="data:image/PNG;base64,{{detail?.image}}" class=" shadow card-img-top" style="width: 8rem;">
+<div class="card m-2 border border-2 shadow" style="width: 12rem; height: 14rem; ">
+    <img src="data:image/PNG;base64,{{detail?.image}}" class="card-img-top" style="width: 9rem;">
+
     <div id="df" class="def-number-input number-input safari_only">
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus " style="background-color: grey;">-</button>
         <input class="quantity text-center" min="0" name="quantity" value="0" type="number">
-    <!-- </div> -->
-    <!-- <input class="" type="checkbox" style="width: 10rem;"> -->
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" style="background-color: #E4B028;">+</button>
+    </div>
 </div>

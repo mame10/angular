@@ -42,7 +42,16 @@
 
 .dboisson, .dportion{
     overflow-y: scroll;
-    height: 14rem;
+    height: 18rem;
 }
 
-
+#df input{
+    width: 4em;
+    margin-right: 0%;
+}
+#df button{
+    width: 2em;
+    margin: 4px;
+    border: none;
+    height: 2em;
+}

@@ -2,23 +2,27 @@
 <app-header></app-header>
 <ng-container *ngIf="produit$|async as detailProduit">
   <div class="container ">
-    <h4 class="d-flex justify-content-center" style="font-size: 3rem;">DETAILS DU PRODUIT </h4>
+    <h4 class="d-flex justify-content-center" style="font-size: 2rem;">DETAILS DU PRODUIT </h4>
     <div class="detail d-flex">
       <div class="image " style="width: 30rem;">
         <img src="data:image/PNG;base64,{{detailProduit.produit.image}}" alt="" style="width: 20rem;" class="shadow">
-        <input type="number" value="1" min="1" class="m-4">
-
+        <div>
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus " style="background-color: grey; width: 3rem;">-</button>
+        <input type="number" name="produit" value="1" min="1" class="m-4" style="width: 11rem;">
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" style="background-color: #E4B028; width: 3rem;">+</button>
+      </div>
       </div>
       <div class="m-4 menu " style="width: 40rem;">
         <p class="mt-1">Burger tres lorem lorem lorem naturels Science
           is an enterprise that should be cherished as an
           activity of the free human mind. Because it transforms
           so there's no reason to think that Earth would be unique.</p>
-        <h4>Nom Produit: {{detailProduit.produit.nom}}</h4>
+        <h4 class="">Nom Produit: {{detailProduit.produit.nom}}</h4>
         <h4>Prix: {{detailProduit.produit.prix}}</h4>
       </div>
     </div>
     <hr style="color: #E4B028;">
+
     <ng-container *ngIf="detailProduit.produit['@type']=='Menu'">
       <div class="detailMenu shadow overflowY-scroll" style="width: 81rem;">
         <h3>Composition du menu:</h3>
