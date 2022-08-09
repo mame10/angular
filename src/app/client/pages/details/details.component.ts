@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Produit } from 'src/app/shared/models/produit';
 import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.service';
+import { PanierService } from 'src/app/shared/services/panier.service';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +13,7 @@ import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.s
 export class DetailsComponent implements OnInit {
 @Input() produit : Produit|null = null; 
   produit$:Observable<any>|undefined=undefined
-  constructor(private serv :CatalogueStoreService,private routes:ActivatedRoute) { }
+  constructor(private serv :CatalogueStoreService,private routes:ActivatedRoute,private servpanier:PanierService) { }
   
     ngOnInit(): void {
       const detailurl=this.routes.snapshot.params['id']
@@ -20,4 +21,8 @@ export class DetailsComponent implements OnInit {
       this.serv.produit(detailurl).subscribe()
       
     } 
+
+    Panier(produit:Produit){
+      this.servpanier.addToPanier(produit)
+    }
 }

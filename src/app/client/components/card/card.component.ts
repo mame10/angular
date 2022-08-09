@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PanierService } from 'src/app/shared/services/panier.service';
 import { Produit } from '../../../shared/models/produit';
 
 
@@ -10,9 +11,12 @@ import { Produit } from '../../../shared/models/produit';
 export class CardComponent implements OnInit {
   @Input() produit : Produit|null = null;
 
-  constructor() { }
+  constructor(private serpanier:PanierService) { }
 
   ngOnInit(): void {
   }
 
+  Cataloguepanier(produit:Produit){
+    this.serpanier.addToPanier(produit)
+  }
 }

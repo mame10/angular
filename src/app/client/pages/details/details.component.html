@@ -53,23 +53,22 @@
               <td>{{portion.quantitePortion}}</td>
               <td>{{portion.portionFrites.prix}}</td>
             </tr>
+            <tr *ngFor="let menuTaille of detailProduit.produit.menuTailles">
+              <td><h5>quantite boisson du menu => {{menuTaille.quantiteBoisson}} </h5></td>
+              <td><h5> taille boisson du menu =>
+                {{menuTaille.tailles.libelle}}</h5></td>
+              <td><h5>prix boisson du menu => {{menuTaille.tailles.prix}}</h5></td>
+              <ng-container *ngFor="let boissonMenu of menuTaille.tailles.tailleBoissons">
+                <img src="data:image/PNG;base64,{{boissonMenu.boisson.image}}" class="shadow card-img-top"
+                style="width: 6rem;">
+              </ng-container>
+            </tr>
           </tbody>
         </table>
-        <ng-container *ngFor="let menuTaille of detailProduit.produit.menuTailles">
-          <div>
-            <h5>quantite boisson du menu => {{menuTaille.quantiteBoisson}}, taille boisson du menu =>
-              {{menuTaille.tailles.libelle}}, prix boisson du menu => {{menuTaille.tailles.prix}}f</h5>
-          </div>
-          <ng-container *ngFor="let boissonMenu of menuTaille.tailles.tailleBoissons">
-            <img src="data:image/PNG;base64,{{boissonMenu.boisson.image}}" class="shadow card-img-top"
-              style="width: 6rem;">
-          </ng-container>
-          <!-- {{menuTaille.tailles.tailleBoissons[0].boisson|json}} -->
-        </ng-container>
       </div>
     </ng-container>
-    <div class="d-flex justify-content-end">
-      <a href="" class="btn btn-secondary p-3 shadow" style="color: #E4B028;">Ajouter panier</a>
+    <div class="d-flex justify-content-end" >
+      <button (click)="Panier(detailProduit)" class="btn btn-secondary p-3 shadow" style="color: #E4B028;">Ajouter panier</button>
     </div>
   </div>
   <h2  class=" border-top  m-4">veuillez choisir des complements de plus</h2>
