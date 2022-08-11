@@ -15,16 +15,25 @@ export class PanierComponent implements OnInit {
   items$=this.service.items$
 
   ngOnInit(): void {
-    this.items$.subscribe(
-      produits=>{
-        produits.map((produit:{ quantite:number ; prix:number})=>{
-          this.price=this.price + produit.quantite*produit.prix
-        })
-      }) 
+    this.montantTotal()
+    // this.items$.subscribe(
+    //   produits=>{
+    //     produits.map((produit:{ quantite:number ; prix:number})=>{
+    //       this.price=this.price + produit.quantite*produit.prix
+    //     })
+    //   }) 
   }
 
 
   removeFromCart(produit: any){
     this.service.removeFromCart(produit)
   }
+
+  quantitePrice(product:Produit,qte: any){
+    this.service.increment(product,qte)
+   }
+
+   montantTotal(){
+    return this.price=this.service.PricePanier()
+   }
 }

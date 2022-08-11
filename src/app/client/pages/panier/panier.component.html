@@ -4,7 +4,7 @@
     <h3>panier</h3>
     <div class="d-flex justify-content-end">
         <h3>Montant total: {{price}}</h3>
-        <h2 class="btn btn-secondary m-2">Catalogue+</h2>
+        <h2 class="btn btn-secondary m-2 fs-4" routerLink="/client">Catalogue+</h2>
     </div>
     <div class="panier shadow">
         <table class="table table-striped">
@@ -24,17 +24,20 @@
                     </td>
                     <td>{{produit.nom}}</td>
                     <td><button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus "
-                            style="background-color: grey;">-</button>
-                        <input class="quantity text-center" min="1" name="quantity" value="{{produit.quantite}}" type="number"
-                            style="width: 3rem;">
+                            style="background-color: grey;" (click)="quantitePrice(produit,quantity.value); montantTotal()">-</button>
+                        <input #quantity class="quantity text-center" min="1" name="quantity"
+                            value="{{produit.quantite}}" type="number" style="width: 3rem;"
+                            (change)="quantitePrice(produit,quantity.value); montantTotal()">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"
-                            style="background-color: #E4B028; ">+</button>
+                            style="background-color: #E4B028; "
+                            (click)="quantitePrice(produit,quantity.value); montantTotal()" >+</button>
                     </td>
                     <td>{{produit.prix}}</td>
-                    <td>{{produit.prix}}</td>
-                    <td> <i (click)="removeFromCart(produit)" class="fa-solid fa-trash-can m-4 fa-2x" style="color: red; cursor: pointer;"></i></td>
+                    <td>{{produit.prix * produit.quantite}}</td>
+                    <td> <i (click)="removeFromCart(produit)" class="fa-solid fa-trash-can m-4 fa-2x"
+                            style="color: red; cursor: pointer;"></i></td>
                 </tr>
-            </tbody> 
+            </tbody>
         </table>
     </div>
 </div>
