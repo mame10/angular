@@ -10,6 +10,7 @@ import { ProduitStoreService } from './shared/services/produit.store.service';
 import { LayoutModule } from './layout/layout.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CatalogueStoreService } from './shared/services/catalogue.store.service';
+import { SecuriteModule } from './securite/securite.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CatalogueStoreService } from './shared/services/catalogue.store.service
     AppRoutingModule,
     RouterModule,
     ClientModule,
-    HttpClientModule 
+    HttpClientModule,
+    SecuriteModule
   ],
   providers: [ProduitStoreService,CatalogueStoreService],
   bootstrap: [AppComponent]

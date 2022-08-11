@@ -9,14 +9,15 @@ import { Produit } from '../../../shared/models/produit';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() produit : Produit|null = null;
-
+  @Input() produit!: Produit;
   constructor(private serpanier:PanierService) { }
+  item$=this.serpanier.items$
 
   ngOnInit(): void {
   }
 
   Cataloguepanier(produit:Produit){
+    produit.quantite=1
     this.serpanier.addToPanier(produit)
   }
 }

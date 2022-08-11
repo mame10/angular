@@ -8,13 +8,23 @@ import { PanierService } from 'src/app/shared/services/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-
-  
-  constructor() { }
-
+  price=0
+  panier?:Produit[]
+ 
+  constructor(private service:PanierService) { }
+  items$=this.service.items$
 
   ngOnInit(): void {
+    this.items$.subscribe(
+      produits=>{
+        produits.map((produit:{ quantite:number ; prix:number})=>{
+          this.price=this.price + produit.quantite*produit.prix
+        })
+      }) 
   }
 
 
+  removeFromCart(produit: any){
+    this.service.removeFromCart(produit)
+  }
 }

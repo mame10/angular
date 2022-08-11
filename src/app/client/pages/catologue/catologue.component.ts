@@ -17,7 +17,8 @@ export class CatologueComponent implements OnInit {
   constructor(private serv:CatalogueStoreService,public router:Router) { }
   
   ngOnInit(): void {
-    this.serv.all().subscribe((data) => this.catalogue = data)
+    this.serv.all().subscribe((data) =>
+     this.catalogue = data)
     // this.catalogue$= this.serv.all()
 
   }

@@ -55,3 +55,7 @@
     border: none;
     height: 2em;
 }
+.panier{
+    height: 32rem;
+    overflow-y: scroll;
+}

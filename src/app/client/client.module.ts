@@ -15,6 +15,7 @@ import { BurgerComponent } from './components/burger/burger.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { ListeDetailsComponent } from './components/liste-details/liste-details.component';
+import { SecuriteModule } from '../securite/securite.module';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { ListeDetailsComponent } from './components/liste-details/liste-details.
     CommonModule,
     ClientRoutingModule,
     LayoutModule,
-    RouterModule,
+    RouterModule
   ]
 })
 export class ClientModule { }

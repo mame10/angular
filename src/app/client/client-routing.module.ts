@@ -16,6 +16,8 @@ const routes: Routes = [
   {path:'menu', component:MenuComponent},
   {path:'mescommandes', component:MescommandesComponent},
   {path:'detailcommande/:id', component:DetailcommandeComponent},
+  
+
 ];
 
 @NgModule({

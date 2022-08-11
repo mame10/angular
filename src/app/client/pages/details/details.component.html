@@ -7,10 +7,12 @@
       <div class="image " style="width: 30rem;">
         <img src="data:image/PNG;base64,{{detailProduit.produit.image}}" alt="" style="width: 20rem;" class="shadow">
         <div>
-        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus " style="background-color: grey; width: 3rem;">-</button>
-        <input type="number" name="produit" value="1" min="1" class="m-4" style="width: 11rem;">
-        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" style="background-color: #E4B028; width: 3rem;">+</button>
-      </div>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus "
+            style="background-color: grey; width: 3rem;">-</button>
+          <input #quantiteProduit type="number" name="produit" value="1" min="1" class="m-4" style="width: 11rem;">
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"
+            style="background-color: #E4B028; width: 3rem;">+</button>
+        </div>
       </div>
       <div class="m-4 menu " style="width: 40rem;">
         <p class="mt-1">Burger tres lorem lorem lorem naturels Science
@@ -54,27 +56,35 @@
               <td>{{portion.portionFrites.prix}}</td>
             </tr>
             <tr *ngFor="let menuTaille of detailProduit.produit.menuTailles">
-              <td><h5>quantite boisson du menu => {{menuTaille.quantiteBoisson}} </h5></td>
-              <td><h5> taille boisson du menu =>
-                {{menuTaille.tailles.libelle}}</h5></td>
-              <td><h5>prix boisson du menu => {{menuTaille.tailles.prix}}</h5></td>
+              <td>
+                <h5>quantite boisson du menu => {{menuTaille.quantiteBoisson}} </h5>
+              </td>
+              <td>
+                <h5> taille boisson du menu =>
+                  {{menuTaille.tailles.libelle}}</h5>
+              </td>
+              <td>
+                <h5>prix boisson du menu => {{menuTaille.tailles.prix}}</h5>
+              </td>
+              <h5>fais votre choix pour les boissons</h5>
               <ng-container *ngFor="let boissonMenu of menuTaille.tailles.tailleBoissons">
                 <img src="data:image/PNG;base64,{{boissonMenu.boisson.image}}" class="shadow card-img-top"
-                style="width: 6rem;">
+                style="width: 7rem;">
+                <input type="checkbox">
               </ng-container>
             </tr>
           </tbody>
         </table>
       </div>
     </ng-container>
-    <div class="d-flex justify-content-end" >
-      <button (click)="Panier(detailProduit)" class="btn btn-secondary p-3 shadow" style="color: #E4B028;">Ajouter panier</button>
+    <div class="d-flex justify-content-end">
+      <button (click)="Panier(detailProduit.produit,quantiteProduit.value)" class="btn btn-secondary p-3 shadow" style="color: #E4B028;">Ajouter panier</button>
     </div>
   </div>
-  <h2  class=" border-top  m-4">veuillez choisir des complements de plus</h2>
+  <h2 class=" border-top  m-4">veuillez choisir des complements de plus</h2>
   <div class="d-flex justify-content-around flex-wrap">
     <div class=" dboisson border border-2 col">
-    <!-- <h2  class="">Boissons</h2> -->
+      <!-- <h2  class="">Boissons</h2> -->
       <app-liste-details [details]="detailProduit.boissons"></app-liste-details>
     </div>
     <div class=" dportion border border-2">

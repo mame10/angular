@@ -2,7 +2,8 @@ export interface Produit {
     id?:number
     image:Blob
     nom:string
-    prix:string
+    prix:number
+    quantite?:number
     description?:string
     '@type':string
 }

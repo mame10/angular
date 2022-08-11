@@ -18,11 +18,11 @@ export class DetailsComponent implements OnInit {
     ngOnInit(): void {
       const detailurl=this.routes.snapshot.params['id']
       this.produit$=this.serv.produit(detailurl)
-      this.serv.produit(detailurl).subscribe()
-      
+      this.serv.produit(detailurl).subscribe()  
     } 
 
-    Panier(produit:Produit){
+    Panier(produit:Produit,quantite:any){
+      produit['quantite']=quantite
       this.servpanier.addToPanier(produit)
     }
 }
