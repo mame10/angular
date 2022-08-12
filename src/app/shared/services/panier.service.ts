@@ -18,7 +18,6 @@ export class PanierService {
   private itemsSubject = new BehaviorSubject<any[]>([]);
   items$ = this.itemsSubject.asObservable();
 
-
   isExistProduit(produit: any, id: number) {
     return produit.find((pro: any) => {
       return pro.id === id;
@@ -35,6 +34,7 @@ export class PanierService {
         }
         else {
           produits.forEach((element: any) => {
+            element.quantite=Number(element.quantite)
             element.quantite += 1
           });
         }
@@ -42,7 +42,6 @@ export class PanierService {
       }),
     ).subscribe();
   }
-
 
   removeFromCart(product: any) {
     this.items$.pipe(

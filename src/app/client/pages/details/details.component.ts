@@ -25,4 +25,10 @@ export class DetailsComponent implements OnInit {
       produit['quantite']=quantite
       this.servpanier.addToPanier(produit)
     }
+
+    get(menuTaille:any,quantite:any){
+      menuTaille['quantite']=quantite
+      console.log(menuTaille);
+      
+    }
 }

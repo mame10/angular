@@ -2,8 +2,7 @@
   <img width="100" alt="Angular Logo" src="assets/images/logoBurger.png" />
   <div class="spacer">
   </div>
-  <a class="icone" routerLink="/client/panier" style="text-decoration: none;"> <span class="fs-4 m-1">{{(items$ |
-      async)?.length}}</span><i class="fa-solid fa-basket-shopping fa-2x text-black-400 fs-4"></i></a>
+  <a class="icone" routerLink="/client/panier" style="text-decoration: none;"><span class="num fs-5">{{(items$ |async)?.length}}</span> <i class="fa-solid fa-basket-shopping fa-2x text-black-400 fs-4"></i></a>
   <a routerLink="/securite/inscription" class="text-black-100 fs-5" style="text-decoration: none;">s'incrire</a>
   <a routerLink="/securite" class="text-black-100 fs-5 " style="text-decoration: none;">connexion</a>
 </div>
