@@ -9,7 +9,7 @@ import { PanierService } from 'src/app/shared/services/panier.service';
 })
 export class PanierComponent implements OnInit {
   price=0
-  panier?:Produit[]
+  // panier?:Produit[]
  
   constructor(private service:PanierService) { }
   items$=this.service.items$

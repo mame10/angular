@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit {
       this.servpanier.addToPanier(produit)
     }
 
-    get(menuTaille:any,quantite:any){
+    get(menuTaille:any,boissonTaile:any,quantite:any){
       menuTaille['quantite']=quantite
       console.log(menuTaille);
       

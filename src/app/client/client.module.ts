@@ -16,6 +16,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { ListeDetailsComponent } from './components/liste-details/liste-details.component';
 import { SecuriteModule } from '../securite/securite.module';
+import { AccueilComponent } from './components/accueil/accueil.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SecuriteModule } from '../securite/securite.module';
     MenuComponent,
     CardDetailsComponent,
     ListeDetailsComponent,
+    AccueilComponent,
    
   ],
   imports: [

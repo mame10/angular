@@ -1,43 +1,60 @@
-<app-header></app-header>
 
-<div class="container">
-    <h3>panier</h3>
-    <div class="d-flex justify-content-end">
-        <h3>Montant total: {{price}}</h3>
-        <h2 class="btn btn-secondary m-2 fs-4" routerLink="/client">Catalogue+</h2>
+<app-header></app-header>
+<app-accueil></app-accueil>
+<section class="h-100">
+
+    <div class="container py-5">
+        <div class="col d-flex justify-content-center align-items-center ">
+            <div class="col-10">
+                <ng-container *ngIf="(items$ | async)?.length == 0">
+                    <h3>Votre panier (<i class="fa-solid fa-basket-shopping fa-2x text-black-400 fs-4"></i>) est vide
+                    </h3>
+                </ng-container>
+                <ng-container *ngIf="(items$ | async)?.length != 0">
+                    <div class="shadow d-flex justify-content-between align-items-center mb-4"
+                        style="background-color:#E4B028;">
+                        <!-- <h3 class="fw-normal mb-0 text-black text-muted">Shopping Cart</h3> -->
+                        <h4 class="text-muted">votre panier contient :{{(items$ |async)?.length}} item(s)</h4>
+                        <div>
+                            <h3 class="text-muted">Montant Total : {{price}} fcfa</h3>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="card rounded-3 mb-4 shadow" *ngFor="let produit of items$ | async">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img src="data:image/PNG;base64,{{produit?.image}}" class="img-fluid rounded-3"
+                                    alt="Cotton T-shirt" style="width:6rem;">
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <p class="lead fw-normal mb-2">{{produit.nom}}</p>
+                                <h4 class="text-muted">{{produit.prix}}</h4>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                    class="minus " style="background-color: grey; width: 2rem;"
+                                    (click)="quantitePrice(produit,quantity.value); montantTotal()">-</button>
+                                <input #quantity class="quantity text-center form-control form-control-sm" min="1"
+                                    name="quantity" value="{{produit.quantite}}" type="number"
+                                    style="width: 3rem; height: 3rem;"
+                                    (change)="quantitePrice(produit,quantity.value); montantTotal()">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                    class="plus" style="background-color: #E4B028; width: 2rem;"
+                                    (click)="quantitePrice(produit,quantity.value); montantTotal()">+</button>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h5 class="mb-0">{{produit.prix * produit.quantite}}</h5>
+                            </div>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <a class="text-danger"><i (click)="removeFromCart(produit); montantTotal() "
+                                        class="fa-solid fa-trash-can m-4 fa-2x" data-mdb-toggle="tooltip"
+                                        title="Remove item" style="color: red; cursor: pointer;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="panier shadow">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">NomProduit</th>
-                    <th scope="col">Quantite</th>
-                    <th scope="col">Prix Unitaire</th>
-                    <th scope="col">Prix Total</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let produit of items$ | async" style="height: 5rem;">
-                    <td><img src="data:image/PNG;base64,{{produit?.image}}" class="card-img-top" style="width: 4rem;">
-                    </td>
-                    <td>{{produit.nom}}</td>
-                    <td><button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus "
-                            style="background-color: grey;" (click)="quantitePrice(produit,quantity.value); montantTotal()">-</button>
-                        <input #quantity class="quantity text-center" min="1" name="quantity"
-                            value="{{produit.quantite}}" type="number" style="width: 3rem;"
-                            (change)="quantitePrice(produit,quantity.value); montantTotal()">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"
-                            style="background-color: #E4B028; "
-                            (click)="quantitePrice(produit,quantity.value); montantTotal()" >+</button>
-                    </td>
-                    <td>{{produit.prix}}</td>
-                    <td>{{produit.prix * produit.quantite}}</td>
-                    <td> <i (click)="removeFromCart(produit)" class="fa-solid fa-trash-can m-4 fa-2x"
-                            style="color: red; cursor: pointer;"></i></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+</section>

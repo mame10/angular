@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/models/users';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  form :any = {
-    email : null,
-    password : null
+  forms : User = {
+    prenom : '',
+    nom : '',
+    adresse :'',
+    telephone: '',
+    username : '',
+    password : '',
+    role : ''
   }
 
 
@@ -19,7 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitForm(){
-
+    console.log(this.forms);
+    
   }
  
 }

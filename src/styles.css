@@ -42,7 +42,7 @@
 
 .dboisson, .dportion{
     overflow-y: scroll;
-    height: 18rem;
+    height: 28rem; 
 }
 
 #df input{
@@ -56,6 +56,6 @@
     height: 2em;
 }
 .panier{
-    height: 32rem;
+    height: auto;
     overflow-y: scroll;
 }

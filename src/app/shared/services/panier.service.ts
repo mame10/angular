@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject, take, map } from 'rxjs';
 import { Produit } from '../models/produit';
 
@@ -7,9 +6,9 @@ import { Produit } from '../models/produit';
   providedIn: 'root'
 })
 export class PanierService {
-  panier: Produit[] = []
-  constructor(private router: Router) {
-    let panier = JSON.parse(localStorage.getItem('produits') || 'null');
+  
+  constructor() {
+    let panier = JSON.parse(localStorage.getItem('produit') || 'null');
     if (!panier) {
       panier = [];
     }
@@ -24,13 +23,13 @@ export class PanierService {
     });
   }
 
-  addToPanier(product: any) {
+  addToPanier(produit: any) {
     this.items$.pipe(
       take(1),
       map((produits) => {
-        if (!this.isExistProduit(produits, product.id)) {
-          product.quantite = 1
-          produits.push(product);
+        if (!this.isExistProduit(produits, produit.id)) {
+          produit.quantite = 1
+          produits.push(produit);
         }
         else {
           produits.forEach((element: any) => {
@@ -38,22 +37,22 @@ export class PanierService {
             element.quantite += 1
           });
         }
-        localStorage.setItem('products', JSON.stringify(produits));
+        localStorage.setItem('produit', JSON.stringify(produit));
       }),
     ).subscribe();
   }
 
-  removeFromCart(product: any) {
+  removeFromCart(produit: any) {
     this.items$.pipe(
       take(1),
       map((produits) => {
 
-        if (produits.includes(product)) {
-          const qte = produits.find((qte: { id: number }) => qte.id == product.id);
+        if (produits.includes(produit)) {
+          const qte = produits.find((qte: { id: number }) => qte.id == produit.id);
           if (qte) {
-            let index = produits.findIndex((qte: any) => qte.id == product.id);
+            let index = produits.findIndex((qte: any) => qte.id == produit.id);
             produits.splice(index, 1)
-            localStorage.setItem('produits', JSON.stringify(produits));
+            localStorage.setItem('produit', JSON.stringify(produit));
           }
         }
 
@@ -64,13 +63,13 @@ export class PanierService {
   increment(product:Produit,quantite :any){
     this.items$.pipe(
       take(1),
-      map((products) => {
-        products.forEach((element:any) =>{
+      map((produit) => {
+        produit.forEach((element:any) =>{
           if(element.id === product.id){
             element.quantite=quantite;
           }
         });
-        localStorage.setItem('produit', JSON.stringify(products));
+        localStorage.setItem('produit', JSON.stringify(produit));
       })
     )
     .subscribe();
@@ -79,11 +78,11 @@ export class PanierService {
   PricePanier(){
     let tab=0
     this.items$.pipe(
-      map((produits) => {
-        produits.forEach((element:any) =>{
+      map((produit) => {
+        produit.forEach((element:any) =>{
           tab+=(element.prix * element.quantite)
         });
-        localStorage.setItem('produit', JSON.stringify(produits));
+        localStorage.setItem('produit', JSON.stringify(produit));
       })
     ).subscribe();
     return tab
