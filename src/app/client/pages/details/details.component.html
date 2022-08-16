@@ -71,7 +71,7 @@
                     data-bs-parent="#accordionExample">
                     <ng-container *ngFor="let boissonMenu of menuTaille.tailles.tailleBoissons">
                       <img src="data:image/PNG;base64,{{ boissonMenu.boisson.image }}" alt="" style="width: 4rem;">
-                      <input type="checkbox" name="" id="" (click)="get(menuTaille.tailles,boissonMenu,valeurInput.value)">
+                      <input type="checkbox" name="" id="" (click)="get(menuTaille.tailles,valeurInput.value)">
                       <input type="number" #valeurInput class="m-3" value="0" min="0" style="width: 3rem;" max="{{boissonMenu.quantiteStock}}">
                     </ng-container>
                   </div>

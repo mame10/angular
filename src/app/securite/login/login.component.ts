@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/users';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { TokenService } from 'src/app/shared/services/token.service';
+
 
 @Component({
   selector: 'app-login',
@@ -19,14 +23,17 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private service:LoginService,private tokenservice: TokenService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onSubmitForm(){
-    console.log(this.forms);
-    
-  }
+  onSubmitForm() : void{ 
+    // console.log(this.forms);
+    this.service.login(this.forms).subscribe(
+      data => {
+        this.tokenservice.saveToken(data.token)
+      },
+      error => console.log(error)  
+    )}
  
 }

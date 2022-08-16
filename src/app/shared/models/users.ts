@@ -8,3 +8,7 @@ export interface User {
     password:string
     role:string
 }
+
+export interface Token{
+    token:string
+}

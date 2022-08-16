@@ -46,7 +46,6 @@ export class PanierService {
     this.items$.pipe(
       take(1),
       map((produits) => {
-
         if (produits.includes(produit)) {
           const qte = produits.find((qte: { id: number }) => qte.id == produit.id);
           if (qte) {
@@ -55,7 +54,6 @@ export class PanierService {
             localStorage.setItem('produit', JSON.stringify(produit));
           }
         }
-
       }),
     ).subscribe();
   }
