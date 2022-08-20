@@ -1,0 +1,41 @@
+<div class="container shadow">
+    <h2 class="cmd mb-4">Liste livreurs</h2>
+    <hr>
+    <!-- <span class="fs-2 ">filtrer commande</span> -->
+    <div class="col d-flex mb-4">
+        <h3>Filtre par Etat</h3>
+        <select name="etat" id="etat" [(ngModel)]="filter" style="width: 10rem; height:3rem">
+            <option value="disponible">Disponible</option>
+            <option value="indisponible">indisponible</option>
+        </select>
+    </div>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr style="background-color: #E4B028;">
+                <th scope="col">Matricule</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Etat</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let liv of liste | filterpipe:filter | filter:date ">
+                <ng-container *ngIf="liv.etat=='disponible'">
+                <td>{{liv.matricule}}</td>
+                <td>{{liv.prenom}}</td>
+                <td>{{liv.nom}}</td>
+                <td>{{liv.telephone}}</td>
+                <td>{{liv.etat}}</td>
+
+                <td><button class="btn btn-secondary m-4">selectionner</button>
+                </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-footer></app-footer>

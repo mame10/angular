@@ -17,6 +17,7 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
 import { ListeDetailsComponent } from './components/liste-details/liste-details.component';
 import { SecuriteModule } from '../securite/securite.module';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { AuthGuard } from '../_heelpers/auth.guard';
 
 
 @NgModule({
@@ -41,6 +42,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     ClientRoutingModule,
     LayoutModule,
     RouterModule
-  ]
+  ],
+  providers: [AuthGuard],
+
 })
 export class ClientModule { }

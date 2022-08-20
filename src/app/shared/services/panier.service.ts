@@ -6,7 +6,7 @@ import { Produit } from '../models/produit';
   providedIn: 'root'
 })
 export class PanierService {
-  
+
   constructor() {
     let panier = JSON.parse(localStorage.getItem('produit') || 'null');
     if (!panier) {
@@ -27,13 +27,15 @@ export class PanierService {
     this.items$.pipe(
       take(1),
       map((produits) => {
+        console.log(produits);
+
         if (!this.isExistProduit(produits, produit.id)) {
           produit.quantite = 1
           produits.push(produit);
         }
         else {
           produits.forEach((element: any) => {
-            element.quantite=Number(element.quantite)
+            element.quantite = Number(element.quantite)
             element.quantite += 1
           });
         }
@@ -58,27 +60,27 @@ export class PanierService {
     ).subscribe();
   }
 
-  increment(product:Produit,quantite :any){
+  increment(product: Produit, quantite: any) {
     this.items$.pipe(
       take(1),
       map((produit) => {
-        produit.forEach((element:any) =>{
-          if(element.id === product.id){
-            element.quantite=quantite;
+        produit.forEach((element: any) => {
+          if (element.id === product.id) {
+            element.quantite = quantite;
           }
         });
         localStorage.setItem('produit', JSON.stringify(produit));
       })
     )
-    .subscribe();
+      .subscribe();
   }
 
-  PricePanier(){
-    let tab=0
+  PricePanier() {
+    let tab = 0
     this.items$.pipe(
       map((produit) => {
-        produit.forEach((element:any) =>{
-          tab+=(element.prix * element.quantite)
+        produit.forEach((element: any) => {
+          tab += (element.prix * element.quantite)
         });
         localStorage.setItem('produit', JSON.stringify(produit));
       })
