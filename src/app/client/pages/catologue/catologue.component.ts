@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Catalogue } from 'src/app/shared/models/catalogue';
-import { Produit } from 'src/app/shared/models/produit';
 import { CatalogueStoreService } from 'src/app/shared/services/catalogue.store.service';
-import { PanierService } from 'src/app/shared/services/panier.service';
 
 
 @Component({

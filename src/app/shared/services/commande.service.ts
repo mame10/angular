@@ -27,8 +27,15 @@ private urlclient:string = 'http://127.0.0.1:8000/api/users'
         ))
       }
       
-      getCommandes(client_id:any){
-    return this.http.get<any>(this.urlclient +"/"+ client_id)
-    
+    getCommandes(client_id:any){
+    return this.http.get<any>(this.urlclient +"/"+ client_id + '/commandes').pipe(
+        map( data => {
+          // console.log(data);
+          
+          let datas=data["hydra:member"]
+          console.log(datas);   
+          return datas
+        })
+    ) 
   }
 }

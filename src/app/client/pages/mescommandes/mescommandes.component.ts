@@ -10,15 +10,12 @@ import { TokenService } from 'src/app/shared/services/token.service';
 export class MescommandesComponent implements OnInit {
 // id = localStorage.getItem('id' || '')
   constructor(private service:CommandeService,private serv:TokenService) { }
+  pagination:number=1
+  filter: string = ''
+  commande: any[] = []
 
   ngOnInit(): void {
-    // console.log(this.id);
-
-
-    // // this.service.getCommandes().subscribe(
-
-    // )
+     this.service.getCommandes(1).subscribe(
+    )
   }
-
-
 }

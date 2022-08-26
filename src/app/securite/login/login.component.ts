@@ -29,17 +29,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmitForm() : void{ 
+  onSubmitForm(){ 
     // console.log(this.forms);
     this.service.login(this.forms).subscribe(
       data => {
+        // console.log(data);
+        
         localStorage.setItem('token',data.token)
-        console.log(data.token);
+        localStorage.setItem('id',data.id)
+        const idCl=data.id;
         const tokenInfo = this.tokenservice.getDecodedAccessToken(data.token); // decode token
         // const expireDate = tokenInfo.exp; // get token expiration dateTime
         // console.log(tokenInfo.roles[0]); // show decoded token object in console
         if(tokenInfo.roles[0]=='ROLE_CLIENT'){
-          this.route.navigate(['/client/mescommandes'])
+          this.route.navigate(['/client/' + idCl+'/mescommandes'])
         }else if(tokenInfo.roles[0]=='ROLE_GESTIONNAIRE'){
           this.route.navigate(['/admin/commande'])
         }

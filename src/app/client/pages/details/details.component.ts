@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit {
 
     get(menuTaille:any,quantite:any){
       menuTaille['quantite']=quantite
-      console.log(menuTaille);
+      // console.log(menuTaille);
       
     }
 }

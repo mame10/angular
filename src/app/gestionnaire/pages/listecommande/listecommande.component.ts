@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Commande } from 'src/app/shared/models/commande';
 import { CommandeService } from 'src/app/shared/services/commande.service';
 
 @Component({
@@ -22,7 +21,12 @@ filter: string = ''
         // console.log(this.listcommande);  
       }
     )
+
+    this.service.getCommandes(1).subscribe(
+      data =>{
+      console.log(data);
+      }
+    )
+
   }
-
-
 }

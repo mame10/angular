@@ -1,1 +1,50 @@
-<p>mescommandes works!</p>
+<!-- 
+<app-header></app-header>
+<div class="container shadow">
+    <h2 class="cmd mb-4">Liste Commandes</h2>
+    <hr>
+    <div class="col d-flex mb-4">
+        <h3>Filtre Date</h3>
+        <input type="date" class="border border-2 m-2" [(ngModel)]="date" style="width: 12rem; height: 3rem;">
+        <h3>Filtre par Etat</h3>
+        <select name="etat" id="etat" [(ngModel)]="filter" style="width: 10rem; height:3rem">
+            <option value="En_cours">En_cours</option>
+            <option value="valider">Valider</option>
+            <option value="terminer">Terminer</option>
+        </select>
+    </div>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr style="background-color: #E4B028;">
+                <th scope="col">Numero</th>
+                <th scope="col">Date</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Etat</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commande of datas | filterpipe:filter | filter:date | paginate:{itemsPerPage: 5, currentPage:pagination}">
+                <ng-container *ngIf="commande.etat=='En_cours'">
+                <td>{{commande.numero}}</td>
+                <td>{{commande.date | date:'dd/MM/YYYY'}}</td>
+                <td>{{commande.montant}}f</td>
+                <td>
+                    {{commande.etat}}
+                </td>
+               
+                <td><button class="btn btn-secondary m-4">Details</button>
+                    <button class="btn btn-secondary">Annuler</button>
+                </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="pagination=$event">
+
+    </pagination-controls>
+</div>
+
+
+<app-footer></app-footer> -->

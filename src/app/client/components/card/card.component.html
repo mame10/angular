@@ -16,12 +16,12 @@
 </div> -->
 
 <div class="card m-4" style="height: 29rem; width: 24rem;">
-    <img class="card-img-top" style="height:15rem;" src="data:image/PNG;base64,{{produit?.image}}">
+    <img class="card-img-top" style="height:15rem;" src="data:image/PNG;base64,{{produit.image}}">
     <div class="card-body">
-        <h2 class="card-title h4">{{produit?.nom}}</h2>
-        <h2 class="card-title">{{produit?.prix}}</h2>
+        <h2 class="card-title h4">{{produit.nom}}</h2>
+        <h2 class="card-title">{{produit.prix}}</h2>
         <!-- <p class="card-text">{{produit?.description|slice:0:50}}</p> -->
-        <a class="btn btn-secondary m-5" routerLink="/client/details/{{produit?.id}}">Details</a>
+        <a class="btn btn-secondary m-5" routerLink="/client/details/{{produit.id}}">Details</a>
         <ng-container>
             <button (click)="Cataloguepanier(produit)" class="btn btn-secondary" >Ajout</button>
         </ng-container>
