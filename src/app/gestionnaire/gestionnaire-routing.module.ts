@@ -6,6 +6,7 @@ import { StatistiquesComponent } from './pages/statistiques/statistiques.compone
 
 const routes: Routes = [
   {path:'commande', component:ListecommandeComponent},
+  {path:':/commande', component:ListecommandeComponent},
   {path:'statistique', component: StatistiquesComponent},
   {path:'livreur', component:  ListelivreurComponent},
 

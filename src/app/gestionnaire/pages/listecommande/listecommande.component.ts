@@ -22,11 +22,7 @@ filter: string = ''
       }
     )
 
-    this.service.getCommandes(1).subscribe(
-      data =>{
-      console.log(data);
-      }
-    )
+   
 
   }
 }

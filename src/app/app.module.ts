@@ -10,7 +10,6 @@ import { ProduitStoreService } from './shared/services/produit.store.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CatalogueStoreService } from './shared/services/catalogue.store.service';
 import { SecuriteModule } from './securite/securite.module';
-import { FilterPipe } from './shared/services/filter.pipe';
 import { GestionnaireModule } from './gestionnaire/gestionnaire.module';
 import { LivreurModule } from './livreur/livreur.module';
 

@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'panier', component:PanierComponent},
   {path:'burger', component:BurgerComponent},
   {path:'menu', component:MenuComponent},
-  {path:'mescommandes',component:MescommandesComponent},
+  {path:':id/mescommandes',component:MescommandesComponent},
   {path:'detailcommande/:id', component:DetailcommandeComponent},
 
 ];

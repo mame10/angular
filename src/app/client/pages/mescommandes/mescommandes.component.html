@@ -1,16 +1,21 @@
-<!-- 
+
 <app-header></app-header>
+<!-- <ng-container *ngIf="commande == []">
+    <h2>Votre liste de commande est vide</h2>
+</ng-container> -->
+<ng-container *ngIf="commande != []">
 <div class="container shadow">
     <h2 class="cmd mb-4">Liste Commandes</h2>
     <hr>
     <div class="col d-flex mb-4">
         <h3>Filtre Date</h3>
-        <input type="date" class="border border-2 m-2" [(ngModel)]="date" style="width: 12rem; height: 3rem;">
+        <input type="date" class="border border-2 m-2"  style="width: 12rem; height: 3rem;">
         <h3>Filtre par Etat</h3>
-        <select name="etat" id="etat" [(ngModel)]="filter" style="width: 10rem; height:3rem">
+        <select name="etat" id="etat"  style="width: 10rem; height:3rem">
             <option value="En_cours">En_cours</option>
             <option value="valider">Valider</option>
             <option value="terminer">Terminer</option>
+            <option value="annuler">Annuler</option>
         </select>
     </div>
     <hr>
@@ -25,15 +30,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let commande of datas | filterpipe:filter | filter:date | paginate:{itemsPerPage: 5, currentPage:pagination}">
-                <ng-container *ngIf="commande.etat=='En_cours'">
-                <td>{{commande.numero}}</td>
-                <td>{{commande.date | date:'dd/MM/YYYY'}}</td>
-                <td>{{commande.montant}}f</td>
+            <tr *ngFor="let cmd of commande | filter:date | paginate:{itemsPerPage: 5, currentPage:pagination}">
+                <ng-container *ngIf="cmd.etat=='En_cours'">
+                <td>{{cmd.numero}}</td>
+                <td>{{cmd.date | date:'dd/MM/YYYY'}}</td>
+                <td>{{cmd.montant}}f</td>
                 <td>
-                    {{commande.etat}}
+                    {{cmd.etat}}
                 </td>
-               
                 <td><button class="btn btn-secondary m-4">Details</button>
                     <button class="btn btn-secondary">Annuler</button>
                 </td>
@@ -45,6 +49,7 @@
 
     </pagination-controls>
 </div>
+</ng-container>
 
 
-<app-footer></app-footer> -->
+<app-footer></app-footer>
